@@ -1,0 +1,33 @@
+spring:
+    webflux:
+        base-path: /api
+    application:
+        name: Webflux-Tut
+    r2dbc:
+        url: r2dbc:mysql://localhost:3306/user_service
+        username: root
+        password: 12345678
+    data:
+        r2dbc:
+            repositories:
+                enabled: true
+
+server:
+  port: 8090
+  servlet:
+    context-path: /api
+
+
+management:
+    endpoints:
+        web:
+            exposure:
+                include: "*"
+    endpoint:
+        health:
+            show-details: always
+logging:
+  level:
+    root: INFO
+    io.r2dbc.spi: INFO
+    io.r2dbc.mysql: INFO
